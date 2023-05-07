@@ -69,7 +69,7 @@ abstract class RunServerTask : DefaultTask() {
 
         project.javaexec {
             it.run {
-                executable = "${project.property("org.gradle.java.home")}/bin/java"
+                executable = "${System.getProperty("java.home")}/bin/java"
 
                 mainClass.set("-jar")
 
