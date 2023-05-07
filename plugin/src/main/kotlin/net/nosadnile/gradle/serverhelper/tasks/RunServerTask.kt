@@ -20,12 +20,13 @@ abstract class RunServerTask : DefaultTask() {
 
     init {
         dependsOn.add("build")
+        dependsOn.add("copyJar")
     }
 
     @Input
     abstract fun getConfig(): Property<ServerHelperExtension>
 
-    fun getServerDir(ext: ServerHelperExtension): Path {
+    private fun getServerDir(ext: ServerHelperExtension): Path {
         return ext.getServerDirectory().get().asFile.toPath() ?: project.rootDir.resolve("run").toPath()
     }
 
@@ -65,10 +66,6 @@ abstract class RunServerTask : DefaultTask() {
                 eulaFile.writeText("eula=true")
             }
         }
-
-        val pluginJar = project.buildDir.resolve("libs").listFiles()?.get(0)?.absoluteFile
-
-        pluginJar?.copyTo(serverDirectory.resolve("plugins").createDirectories().resolve(pluginJar.name).toFile())
 
         project.javaexec {
             it.run {

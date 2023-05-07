@@ -2,7 +2,7 @@ import net.nosadnile.gradle.serverhelper.dsl.ServerType
 
 plugins {
     id("java")
-    id("net.nosadnile.gradle.serverhelper") version "1.0.0"
+    id("net.nosadnile.gradle.serverhelper") version "1.2.0"
 }
 
 group = "net.nosadnile.gradle"
