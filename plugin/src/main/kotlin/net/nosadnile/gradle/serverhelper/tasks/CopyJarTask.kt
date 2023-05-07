@@ -44,10 +44,6 @@ abstract class CopyJarTask : DefaultTask() {
 
         val outJar = serverDirectory.resolve("plugins").createDirectories().resolve(pluginJar!!.name).toFile()
 
-        if (outJar.exists()) {
-            outJar.delete()
-        }
-
-        pluginJar.copyTo(outJar)
+        pluginJar.copyTo(outJar, true)
     }
 }
