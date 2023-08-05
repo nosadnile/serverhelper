@@ -16,11 +16,17 @@
           </compositeBuild>
         </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/example" />
+            <option value="$PROJECT_DIR$/examples" />
+            <option value="$PROJECT_DIR$/examples/bungeecord" />
+            <option value="$PROJECT_DIR$/examples/folia" />
+            <option value="$PROJECT_DIR$/examples/paper" />
+            <option value="$PROJECT_DIR$/examples/purpur" />
+            <option value="$PROJECT_DIR$/examples/spigot" />
+            <option value="$PROJECT_DIR$/examples/velocity" />
+            <option value="$PROJECT_DIR$/examples/waterfall" />
             <option value="$PROJECT_DIR$/plugin" />
           </set>
         </option>

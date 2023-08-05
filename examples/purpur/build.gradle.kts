@@ -25,5 +25,5 @@ serverHelper {
     getEula().set(true)
     getServerType().set(ServerType.PURPUR)
     getServerDirectory().set(project.rootDir.resolve("run"))
-    getMinecraftVersion().set("1.19.4")
+    getMinecraftVersion().set("1.20.1")
 }

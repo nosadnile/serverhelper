@@ -19,6 +19,9 @@ dependencies {
     implementation(gradleApi())
     implementation(kotlin("stdlib-jdk7"))
 
+    implementation("com.akuleshov7:ktoml-core:0.5.0")
+    implementation("com.akuleshov7:ktoml-file:0.5.0")
+    implementation("io.github.z4kn4fein:semver:1.4.2")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
 }
 

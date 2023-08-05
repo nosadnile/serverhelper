@@ -1,6 +1,6 @@
 package net.nosadnile.gradle.serverhelper.dsl
 
-import net.nosadnile.gradle.serverhelper.util.MinecraftVersionHelper
+import net.nosadnile.gradle.serverhelper.api.PistonAPI
 import org.gradle.api.Project
 import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.provider.ListProperty
@@ -37,7 +37,7 @@ abstract class ServerHelperExtension(project: Project) : ServerHelperExtensionAP
     }
 
     val finalServerType: Provider<ServerType> get() = getServerType().orElse(ServerType.PAPER)
-    val finalMinecraftVersion: Provider<String> get() = getMinecraftVersion().orElse(MinecraftVersionHelper.getLatestMinecraftVersion())
+    val finalMinecraftVersion: Provider<String> get() = getMinecraftVersion().orElse(PistonAPI.getLatestMinecraftVersion())
     val finalJarName: Provider<String> get() = getJarName().orElse("server.jar")
     val finalJvmArgs: Provider<List<String>> get() = getJvmArgs().orElse(listOf())
     val finalServerArgs: Provider<List<String>> get() = getServerArgs().orElse(listOf())

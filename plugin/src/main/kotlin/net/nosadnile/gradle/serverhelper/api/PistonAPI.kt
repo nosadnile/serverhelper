@@ -1,4 +1,4 @@
-package net.nosadnile.gradle.serverhelper.util
+package net.nosadnile.gradle.serverhelper.api
 
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
@@ -7,7 +7,7 @@ import net.nosadnile.gradle.serverhelper.schema.PistonMeta
 
 import java.net.URL
 
-class MinecraftVersionHelper {
+class PistonAPI {
     companion object Helper {
         private val json = Json { ignoreUnknownKeys = true }
 
