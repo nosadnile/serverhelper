@@ -47,11 +47,11 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/nosadnile/serverhelper")
+            url = uri("https://repo.nosadnile.net/releases")
 
             credentials {
-                username = System.getProperty("github.user") ?: System.getenv("GITHUB_ACTOR")
-                password = System.getProperty("github.token") ?: System.getenv("GITHUB_TOKEN")
+                username = System.getenv("MAVEN_REPO_USER")
+                password = System.getenv("MAVEN_REPO_TOKEN")
             }
         }
     }

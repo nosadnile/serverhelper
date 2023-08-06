@@ -18,10 +18,11 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Publish on Plugin Portal
+      - name: Publish
         run: ./gradlew plugin:publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAVEN_REPO_USER: ${{ secrets.MAVEN_REPO_USER }}
+          MAVEN_REPO_TOKEN: ${{ secrets.MAVEN_REPO_TOKEN }}
 
       - name: Stop Gradle
         run: ./gradlew --stop
