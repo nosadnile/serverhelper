@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "net.nosadnile.gradle"
-version = "1.6.0"
+version = "1.6.1"
 
 repositories {
     google()
@@ -46,7 +46,7 @@ kotlin {
 publishing {
     repositories {
         maven {
-            name = "GitHubPackages"
+            name = "nosadnile-maven"
             url = uri("https://repo.nosadnile.net/releases")
 
             credentials {
