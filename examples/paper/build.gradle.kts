@@ -22,8 +22,8 @@ tasks.test {
 }
 
 serverHelper {
-    getEula().set(true)
-    getServerType().set(ServerType.PAPER)
-    getServerDirectory().set(project.rootDir.resolve("run"))
-    getMinecraftVersion().set("1.20.1")
+    eula.set(true)
+    serverType.set(ServerType.PAPER)
+    serverDirectory.set(project.rootDir.resolve("run"))
+    minecraftVersion.set("1.20.1")
 }

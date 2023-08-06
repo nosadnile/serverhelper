@@ -1,7 +1,5 @@
 package net.nosadnile.gradle.serverhelper.api
 
-import io.github.z4kn4fein.semver.Version
-import io.github.z4kn4fein.semver.toVersion
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import net.nosadnile.gradle.serverhelper.schema.PaperMeta
@@ -13,9 +11,9 @@ class PaperAPI {
 
         @JvmStatic
         fun getServerJar(project: String, version: String): String {
-            val buildId = getLatestProjectBuildId(project, version.toVersion())
+            val buildId = getLatestProjectBuildId(project, version)
 
-            return getProjectDownload(project, version.toVersion(), buildId)
+            return getProjectDownload(project, version, buildId)
         }
 
         @JvmStatic
@@ -35,17 +33,12 @@ class PaperAPI {
         }
 
         @JvmStatic
-        fun getProjectVersions(project: String): List<Version> {
-            return getProject(project).versions.map { it.toVersion() }
+        fun getProjectLatestVersion(project: String): String {
+            return getProject(project).versions.last()
         }
 
         @JvmStatic
-        fun getProjectLatestVersion(project: String): Version {
-            return getProjectVersions(project).max()
-        }
-
-        @JvmStatic
-        fun getProjectBuildIds(project: String, version: Version): List<Int> {
+        fun getProjectBuildIds(project: String, version: String): List<Int> {
             val buildsUrl = "https://papermc.io/api/v2/projects/$project/versions/$version/builds"
             val buildsJson = URL(buildsUrl).readText()
             val builds = json.decodeFromString<PaperMeta.VersionBuilds>(buildsJson)
@@ -54,12 +47,12 @@ class PaperAPI {
         }
 
         @JvmStatic
-        fun getLatestProjectBuildId(project: String, version: Version): Int {
+        fun getLatestProjectBuildId(project: String, version: String): Int {
             return getProjectBuildIds(project, version).max()
         }
 
         @JvmStatic
-        fun getProjectBuild(project: String, version: Version, id: Int): PaperMeta.VersionBuild {
+        fun getProjectBuild(project: String, version: String, id: Int): PaperMeta.VersionBuild {
             val buildUrl = "https://papermc.io/api/v2/projects/$project/versions/$version/builds/$id"
             val buildJson = URL(buildUrl).readText()
 
@@ -67,7 +60,7 @@ class PaperAPI {
         }
 
         @JvmStatic
-        fun getProjectFile(project: String, version: Version, id: Int): String? {
+        fun getProjectFile(project: String, version: String, id: Int): String? {
             val build = getProjectBuild(project, version, id)
             val file = build.downloads["application"]
 
@@ -75,7 +68,7 @@ class PaperAPI {
         }
 
         @JvmStatic
-        fun getProjectDownload(project: String, version: Version, id: Int): String {
+        fun getProjectDownload(project: String, version: String, id: Int): String {
             val file = getProjectFile(project, version, id)
 
             return "https://papermc.io/api/v2/projects/$project/versions/$version/builds/$id/downloads/$file"

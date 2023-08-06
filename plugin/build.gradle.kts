@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "net.nosadnile.gradle"
-version = "1.5.0"
+version = "1.6.0"
 
 repositories {
     google()
@@ -20,9 +20,10 @@ dependencies {
     implementation(kotlin("stdlib-jdk7"))
 
     implementation("com.akuleshov7:ktoml-core:0.5.0")
-    implementation("com.akuleshov7:ktoml-file:0.5.0")
-    implementation("io.github.z4kn4fein:semver:1.4.2")
+    implementation("com.charleskorn.kaml:kaml:0.55.0")
+
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 }
 
 gradlePlugin {

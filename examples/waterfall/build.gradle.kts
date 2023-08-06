@@ -22,8 +22,14 @@ tasks.test {
 }
 
 serverHelper {
-    getEula().set(true)
-    getServerType().set(ServerType.WATERFALL)
-    getServerDirectory().set(project.rootDir.resolve("run"))
-    getMinecraftVersion().set("1.20.1")
+    eula.set(true)
+    serverType.set(ServerType.WATERFALL)
+    serverDirectory.set(project.rootDir.resolve("run"))
+    minecraftVersion.set("1.20.1")
+
+    proxy {
+        eula.set(true)
+
+        server("lobby", 25565)
+    }
 }

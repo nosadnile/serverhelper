@@ -22,7 +22,7 @@ abstract class CopyJarTask : DefaultTask() {
     abstract fun getConfig(): Property<ServerHelperExtension>
 
     private fun getServerDir(ext: ServerHelperExtension): Path {
-        return ext.getServerDirectory().get().asFile.toPath() ?: project.rootDir.resolve("run").toPath()
+        return ext.serverDirectory.get().asFile.toPath() ?: project.rootDir.resolve("run").toPath()
     }
 
     @TaskAction
